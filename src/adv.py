@@ -1,5 +1,6 @@
 from room import Room
-
+from player import Player
+import sys
 # Declare all the rooms
 
 room = {
@@ -49,3 +50,34 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+def main():
+    cardinalDirections = ["n", "s", "e", "w"]
+    player = Player(room['outside'])
+    while (True):
+        print(player.room.name)
+        print(player.room.desc)
+        command = input("Choose n, s, e, w, to move. Or q to quit: ")
+
+        if command == "q":
+            break
+
+        if command not in cardinalDirections:
+            print("Invalid Command.")
+            continue
+
+        if command == "s" or "e" or "w":
+            print("Unable to move in that direction.")
+            
+        if command == "n":
+            player.room is ['foyer']
+            print(player.room.name)
+            print(player.room.desc)
+            command = input("Choose n, s, e, w, to move. Or q to quit: ")
+    sys.exit()
+
+
+    
+if __name__ == "__main__":
+    main()
+
